@@ -1,0 +1,17 @@
+vim.g.mapleader = " "
+--vim.keymap.set({ "n" }, "<leader>", "<enter>")
+--local ls = require("luasnip")
+--
+---- Jump forward (next parameter) with Ctrl+n
+--vim.keymap.set({ "i", "s" }, "<C-n>", function()
+--    if ls.jumpable(1) then
+--        ls.jump(1)
+--    end
+--end, { silent = true })
+--
+---- Jump backward (previous parameter) with Ctrl+Shift+n
+--vim.keymap.set({ "i", "s" }, "<C-S-n>", function()
+--    if ls.jumpable(-1) then
+--        ls.jump(-1)
+--    end
+--end, { silent = true })
