@@ -5,6 +5,7 @@ local M = {
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
+    { 'HawkinsT/pathfinder.nvim' } ,
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -18,7 +19,8 @@ local M = {
         'stevearc/oil.nvim',
         ---@module 'oil'
         ---@type oil.SetupOpts
-        opts = {},
+        opts = {
+        },
         -- Optional dependencies
         dependencies = { { "echasnovski/mini.icons", opts = {} } },
         -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
@@ -45,6 +47,7 @@ local M = {
     {
         "rose-pine/neovim",
     },
+{ 'xiyaowong/fast-cursor-move.nvim' },
     {
         "mfussenegger/nvim-dap-python"
     }

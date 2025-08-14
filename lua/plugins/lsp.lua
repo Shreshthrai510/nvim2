@@ -1,6 +1,9 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        opts = {
+      autoformat = false,
+    },
         dependencies = {
             'saghen/blink.cmp',
             {
@@ -19,59 +22,45 @@ return {
             -- LSP Servers setup
             local servers = {
                 lua_ls = {
-                    cmd = {
-                        "C:\\Users\\shreshth.rai\\Documents\\LSP\\bin\\lua-language-server"
-                    },
-                    settings = {
-                        Lua = {
-                            runtime = { version = "LuaJIT" },
-                            diagnostics = { globals = { "vim" } },
-                            workspace = {
-                                library = vim.api.nvim_get_runtime_file("", true),
-                                checkThirdParty = false,
-                            },
-                            telemetry = { enable = false },
-                        }
-                    }
+                --    cmd = {
+                --        "C:\\Users\\shreshth.rai\\Documents\\LSP\\bin\\lua-language-server"
+                --    },
+                --    settings = {
+                --        Lua = {
+                --            runtime = { version = "LuaJIT" },
+                --            diagnostics = { globals = { "vim" } },
+                --            workspace = {
+                --                library = vim.api.nvim_get_runtime_file("", true),
+                --                checkThirdParty = false,
+                --            },
+                --            telemetry = { enable = false },
+                --        }
+                --    }
                 }, -- Lua
                 cssls = {
-                    cmd = {
-                        "node",
-                        "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-css-languageserver-bin\\cssServerMain.js",
-                        "--stdio"
-                    },
+                   -- cmd = { "node", "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-css-languageserver-bin\\cssServerMain.js", "--stdio" },
                 }, -- HTML
                 jsonls = {
-                    cmd = {
-                        "node",
-                        "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-json-languageserver-bin\\jsonServerMain.js",
-                        "--stdio"
-                    },
+                   -- cmd = { "node", "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-json-languageserver-bin\\jsonServerMain.js", "--stdio" },
                 }, -- HTML
                 html = {
-                    cmd = {
-                        "node",
-                        "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-html-languageserver-bin\\htmlServerMain.js",
-                        "--stdio"
-                    },
+                  --  cmd = { "node", "C:\\ZippingIt\\MyFiles\\node_modules\\vscode-html-languageserver-bin\\htmlServerMain.js", "--stdio" },
                 }, -- HTML
                 ts_ls = {
-                    cmd = {
-                        "node",
-                        "C:\\Users\\shreshth.rai\\TS_LS\\ZippingIt\\node_modules\\typescript-language-server\\lib\\cli.mjs",
-                        "--stdio"
-                    }
+                    --cmd = {
+                    --    "node",
+                    --    "C:\\Users\\shreshth.rai\\TS_LS\\ZippingIt\\node_modules\\typescript-language-server\\lib\\cli.mjs",
+                    --    "--stdio"
+                    --}
                 }, -- JS, JSX, TS, TSX
                 svelte = {
-                    cmd = {
-                        "node",
-                        "C:\\Users\\shreshth.rai\\AppData\\Local\\nvim\\ZippingIt\\node_modules\\svelte-language-server\\bin\\server.js",
-                        "--stdio"
-                    },
+                   -- cmd = {
+                   --     "node",
+                   --     "C:\\Users\\shreshth.rai\\AppData\\Local\\nvim\\ZippingIt\\node_modules\\svelte-language-server\\bin\\server.js",
+                   --     "--stdio"
+                   -- },
                 }, -- Svelte
                 tailwindcss = {
-                    "node",
-
                 }, -- TailwindCSS
             }
 
