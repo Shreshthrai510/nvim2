@@ -20,7 +20,7 @@ vim.api.nvim_create_user_command('Tirm', function(opts)
             vim.api.nvim_set_current_win(terminal_win_id)
             vim.cmd('vsplit') 
             vim.cmd('wincmd l')
-            vim.cmd('term')
+            vim.cmd('term powershell')
             vim.cmd('resize 10') 
             return
         end

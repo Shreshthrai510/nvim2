@@ -1,5 +1,6 @@
 require("config.lazy")
 require("dir1.tag")
+require("dir1.tabs")
 require("dir1.gf")
 require("dir1.lsp")
 require("dir1.gitoption")
