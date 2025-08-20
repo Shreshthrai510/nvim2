@@ -9,7 +9,7 @@ require("dir1.telescope")
 require("dir1.options")
 require("dir1.terminalconfig")
 require("dir1.harpoon")
-
+require("dir1.lualine")
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.g.autoformat = false
 require("mason").setup()
@@ -44,75 +44,3 @@ vim.keymap.set("n", "<leader>WE", function()
     vim.diagnostic.config({ virtual_text = true })
 end, { desc = "Show only error diagnostics" })
 
-local function gettabname()
-	local tabnr = vim.api.nvim_get_current_tabpage()
-	local tabname = vim.api.nvim_tabpage_get_var(tabnr, 'name')
-	return [[Exer]]
-end
-local function hello()
-	local tabnr = vim.api.nvim_get_current_tabpage()
-  return tabnr
-end
-
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    always_show_tabline = true,
-    globalstatus = true,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
-      refresh_time = 16, -- ~60fps
-      events = {
-        'WinEnter',
-        'BufEnter',
-        'BufWritePost',
-        'SessionLoadPost',
-        'FileChangedShellPost',
-        'VimResized',
-        'Filetype',
-        'CursorMoved',
-        'CursorMovedI',
-        'ModeChanged',
-      },
-    }
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'buffers'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'buffers'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {
-		  lualine_a = {gettabname},
-    lualine_b = {hello},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
-	},
-
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
