@@ -11,7 +11,7 @@ require("dir1.harpoon")
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.g.autoformat = false
--- require("mason").setup()
+require("mason").setup()
 require("oil").setup({
     keymaps = {
     ["g?"] = { "actions.show_help", mode = "n" },

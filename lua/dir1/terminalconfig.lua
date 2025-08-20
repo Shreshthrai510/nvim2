@@ -1,5 +1,5 @@
 vim.o.termguicolors = true
-vim.opt.shell = 'powershell'
+--1vim.opt.shell = 'powershell'
 vim.api.nvim_create_user_command('Tirm', function(opts)
     local has_terminal = false
     local terminal_win_id = nil
