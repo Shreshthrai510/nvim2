@@ -2,7 +2,7 @@ require("dir1")
 -- vim.cmd[[colorscheme catppuccin-mocha]]
 vim.opt.number = true
 vim.opt.relativenumber = true
-local colorscheme = "minischeme"
+local colorscheme = "brightburn"
 local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 vim.o.background = "dark" -- or "light" for light mode
 if not ok then
