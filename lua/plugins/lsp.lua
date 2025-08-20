@@ -76,15 +76,15 @@ return {
                     if not c then return end
 
                     local format_filetypes = {
-                        lua = true,
-                        html = true,
-                        javascript = true,
-                        javascriptreact = true,
-                        typescript = true,
-                        typescriptreact = true,
+                        lua = false,
+                        html = false,
+                        javascript = false,
+                        javascriptreact = false,
+                        typescript = false,
+                        typescriptreact = false,
                         svelte = true,
-                        json = true,
-                        css = true,
+                        json = false,
+                        css = false,
                     }
 
                     if format_filetypes[vim.bo[args.buf].filetype] then
