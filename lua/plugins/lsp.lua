@@ -62,6 +62,8 @@ return {
                 }, -- Svelte
                 tailwindcss = {
                 }, -- TailwindCSS
+                pyright = {
+                }, -- TailwindCSS
             }
 
             for server, opts in pairs(servers) do
@@ -85,6 +87,7 @@ return {
                         svelte = true,
                         json = false,
                         css = false,
+                        pyright = false,
                     }
 
                     if format_filetypes[vim.bo[args.buf].filetype] then

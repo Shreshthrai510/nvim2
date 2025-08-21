@@ -1,14 +1,21 @@
 local tabnames = {}
+local csnames = {}
+local dcs = "brightburn"
+local cs = "brightburn"
 local function gettabname()
 	local tabnr = vim.api.nvim_get_current_tabpage()
 	local str = '[UTab] '..tabnr
 	if #tabnames <tabnr and tabnames[tabnr]==nil then
 		tabnames[tabnr] = str
+		csnames[tabnr] = dcs 
 	end
 	str = tabnames[tabnr]
+	if csnames[tabnr] ~= cs then
+		cs =csnames[tabnr]
+		vim.cmd('colorscheme '..cs)
+	end
 	return str
 end
---string.sub(tabnames[tabnr],1,1)=='['
 local function hello()
 	local tabnr = vim.api.nvim_get_current_tabpage()
   return tabnr
@@ -20,6 +27,15 @@ vim.api.nvim_create_user_command(
 		local arg = opts.args                 -- get argument
 		local tabnr = vim.api.nvim_get_current_tabpage()
 		tabnames[tabnr] =arg
+  end,
+  { nargs = 1 }                           -- requires exactly 1 argument
+)
+vim.api.nvim_create_user_command(
+  "Tabc",                                -- command name (:MyCmd)
+  function(opts)
+		local arg = opts.args                 -- get argument
+		local tabnr = vim.api.nvim_get_current_tabpage()
+		csnames[tabnr] =arg
   end,
   { nargs = 1 }                           -- requires exactly 1 argument
 )
@@ -39,7 +55,7 @@ require('lualine').setup {
     globalstatus = true,
     refresh = {
       statusline = 1000,
-      tabline = 1000,
+      tabline = 10,
       winbar = 1000,
       refresh_time = 16, -- ~60fps
       events = {

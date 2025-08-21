@@ -1,4 +1,5 @@
 require("dir1")
+vim.g.fuzzy = { implementation = 'lua' }
 -- vim.cmd[[colorscheme catppuccin-mocha]]
 vim.opt.number = true
 vim.opt.relativenumber = true
