@@ -37,7 +37,12 @@ vim.api.nvim_create_user_command(
 		local tabnr = vim.api.nvim_get_current_tabpage()
 		csnames[tabnr] =arg
   end,
-  { nargs = 1 }                           -- requires exactly 1 argument
+  {
+		nargs = 1,
+		complete = function(_, _, _)
+			return vim.fn.getcompletion("", "color")
+		end,
+	}                           -- requires exactly 1 argument
 )
 require('lualine').setup {
   options = {
