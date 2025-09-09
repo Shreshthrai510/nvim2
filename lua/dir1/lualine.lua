@@ -2,6 +2,7 @@ local tabnames = {}
 local csnames = {}
 local dcs = "brightburn"
 local cs = "brightburn"
+local tabnm = { "main", "core", "config", "settings", "init", "setup", "global", "frontend", "backend", "api", "database", "auth", "routes", "models", "controllers", "services", "utils", "hooks", "components", "widgets", "dev", "staging", "prod", "local", "testing", "qa", "terminal", "shell", "bash", "zsh", "powershell", "logs", "debug", "ui", "ux", "design", "theme", "colors", "editor", "docs", "notes", "scratch", "draft", "playground", "sandbox", "tmp" }
 local function gettabname()
 	local tabnr = vim.api.nvim_get_current_tabpage()
 	local str = '[UTab] '..tabnr
@@ -28,7 +29,12 @@ vim.api.nvim_create_user_command(
 		local tabnr = vim.api.nvim_get_current_tabpage()
 		tabnames[tabnr] =arg
   end,
-  { nargs = 1 }                           -- requires exactly 1 argument
+  {
+		nargs = 1,
+		complete = function(_, _, _)
+			return tabnm
+		end,
+	}                           -- requires exactly 1 argument
 )
 vim.api.nvim_create_user_command(
   "Tabc",                                -- command name (:MyCmd)
@@ -59,10 +65,10 @@ require('lualine').setup {
     always_show_tabline = true,
     globalstatus = true,
     refresh = {
-      statusline = 1000,
-      tabline = 10,
-      winbar = 1000,
-      refresh_time = 16, -- ~60fps
+      statusline = 10,
+      tabline = 1,
+      winbar = 100,
+      refresh_time = 1, -- ~60fps
       events = {
         'WinEnter',
         'BufEnter',
