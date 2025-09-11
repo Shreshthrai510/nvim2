@@ -78,7 +78,7 @@ return {
                     if not c then return end
 
                     local format_filetypes = {
-                        lua = false,
+                        lua = true,
                         html = false,
                         javascript = false,
                         javascriptreact = false,
