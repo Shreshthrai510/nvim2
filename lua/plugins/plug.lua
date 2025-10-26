@@ -1,56 +1,64 @@
 local M = {
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-        -- or                              , branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-    { 'HawkinsT/pathfinder.nvim' } ,
-    {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
-    {
-        "mason-org/mason.nvim",
-        opts = {}
-    },
-    {
-        'stevearc/oil.nvim',
-        ---@module 'oil'
-        ---@type oil.SetupOpts
-        opts = {
-        },
-        -- Optional dependencies
-        dependencies = { { "echasnovski/mini.icons", opts = {} } },
-        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-        lazy = false,
-    },
-    {
-        "mbbill/undotree"
-    },
-    {
-        "catppuccin/nvim"
-    },
-    {
-        "erikbackman/brightburn.vim",
-    },
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8',
+		-- or                              , branch = '0.1.x',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+	{ 'HawkinsT/pathfinder.nvim' },
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" }
+	},
+	{
+		"mason-org/mason.nvim",
+		opts = {}
+	},
+	{
+		'stevearc/oil.nvim',
+		---@module 'oil'
+		---@type oil.SetupOpts
+		opts = {
+		},
+		-- Optional dependencies
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
+		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+		lazy = false,
+	},
+	{
+		"mbbill/undotree"
+	},
+	{
+		"catppuccin/nvim"
+	},
+	{
+		"erikbackman/brightburn.vim",
+	},
 
-    {
-        "folke/tokyonight.nvim",
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-    },
+	{
+		"folke/tokyonight.nvim",
+	},
+	{
+		"ellisonleao/gruvbox.nvim",
+	},
 
-    {
-        "rose-pine/neovim",
-    },
-{ 'xiyaowong/fast-cursor-move.nvim' },
-    {
-        "mfussenegger/nvim-dap-python"
-    }
+	{
+		"rose-pine/neovim",
+	},
+	{ 'xiyaowong/fast-cursor-move.nvim' },
+	{
+		"mfussenegger/nvim-dap-python"
+	}
 }
 
 
