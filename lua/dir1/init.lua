@@ -15,33 +15,63 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.g.autoformat = false
 require("mason").setup()
 require("oil").setup({
-    keymaps = {
-    ["g?"] = { "actions.show_help", mode = "n" },
-        ["<C-y>"] = "actions.select",
-        ["<C-s>"] = { "actions.select", opts = { vertical = true } },
-        ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
-        ["<C-t>"] = { "actions.select", opts = { tab = true } },
-        ["<C-p>"] = "actions.preview",
-        ["<C-c>"] = { "actions.close", mode = "n" },
-        ["<C-l>"] = "actions.refresh",
-        ["<C-b>"] = { "actions.parent", mode = "n" },
-        ["_"] = { "actions.open_cwd", mode = "n" },
-        ["`"] = { "actions.cd", mode = "n" },
-        ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
-        ["gs"] = { "actions.change_sort", mode = "n" },
-        ["gx"] = "actions.open_external",
-        ["g."] = { "actions.toggle_hidden", mode = "n" },
-        ["g\\"] = { "actions.toggle_trash", mode = "n" },
-    },
+	keymaps = {
+		["g?"] = { "actions.show_help", mode = "n" },
+		["<C-y>"] = "actions.select",
+		["<C-s>"] = { "actions.select", opts = { vertical = true } },
+		["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+		["<C-t>"] = { "actions.select", opts = { tab = true } },
+		["<C-p>"] = "actions.preview",
+		["<C-c>"] = { "actions.close", mode = "n" },
+		["<C-l>"] = "actions.refresh",
+		["<C-b>"] = { "actions.parent", mode = "n" },
+		["_"] = { "actions.open_cwd", mode = "n" },
+		["`"] = { "actions.cd", mode = "n" },
+		["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+		["gs"] = { "actions.change_sort", mode = "n" },
+		["gx"] = "actions.open_external",
+		["g."] = { "actions.toggle_hidden", mode = "n" },
+		["g\\"] = { "actions.toggle_trash", mode = "n" },
+	},
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<C-b>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.opt.guifont = "FiraCode Nerd Font:h12"
-vim.diagnostic.config({ virtual_text = { current_line = true } })
+vim.diagnostic.config({
+	virtual_lines = {
+		only_current_line = true,
+		format = function(diagnostic)
+			-- wrap width
+			local max_width = 30
+			local message = diagnostic.message
+			local lines = {}
+			while #message > max_width do
+				local space = message:sub(1, max_width):match(".*()%s")
+				space = space or max_width
+				table.insert(lines, message:sub(1, space))
+				message = message:sub(space + 1)
+			end
+			table.insert(lines, message)
+			local virt_lines = ""
+			for _, l in ipairs(lines) do
+				virt_lines = virt_lines .. "\n" .. l
+			end
+			--return virt_lines
+			return virt_lines
+
+
+			---- convert each string line into a table of text chunks
+			--local virt_lines = {}
+			--for _, l in ipairs(lines) do
+			--	table.insert(virt_lines, { { l, "DiagnosticVirtualText" } })
+			--end
+			--return virt_lines
+		end,
+	},
+})
 vim.keymap.set("n", "<leader>WW", function()
-    vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
+	vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
 end, { desc = "Show only error diagnostics" })
 vim.keymap.set("n", "<leader>WE", function()
-    vim.diagnostic.config({ virtual_text = true })
+	vim.diagnostic.config({ virtual_text = true })
 end, { desc = "Show only error diagnostics" })
-
