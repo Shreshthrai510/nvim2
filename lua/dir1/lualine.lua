@@ -5,7 +5,7 @@ local cs = "brightburn"
 local tabnm = { "main", "core", "config", "settings", "init", "setup", "global", "frontend", "backend", "api", "database", "auth", "routes", "models", "controllers", "services", "utils", "hooks", "components", "widgets", "dev", "staging", "prod", "local", "testing", "qa", "terminal", "shell", "bash", "zsh", "powershell", "logs", "debug", "ui", "ux", "design", "theme", "colors", "editor", "docs", "notes", "scratch", "draft", "playground", "sandbox", "tmp" }
 local function gettabname()
 	local tabnr = vim.api.nvim_get_current_tabpage()
-	local str = '[UTab] '..tabnr
+	local str = ''..tabnr
 	if #tabnames <tabnr and tabnames[tabnr]==nil then
 		tabnames[tabnr] = str
 		csnames[tabnr] = dcs 

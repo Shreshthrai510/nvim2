@@ -42,7 +42,6 @@ vim.diagnostic.config({
 	virtual_lines = {
 		current_line = true,
 		format = function(diagnostic)
-			-- wrap width
 			local max_width = 30
 			local message = diagnostic.message
 			local lines = {}
@@ -57,7 +56,6 @@ vim.diagnostic.config({
 			for _, l in ipairs(lines) do
 				virt_lines = virt_lines .. "\n" .. l
 			end
-			--return virt_lines
 			return virt_lines
 		end,
 	},
