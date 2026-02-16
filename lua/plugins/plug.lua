@@ -56,9 +56,8 @@ local M = {
 		"rose-pine/neovim",
 	},
 	{ 'xiyaowong/fast-cursor-move.nvim' },
-	{
-		"mfussenegger/nvim-dap-python"
-	}
+	{ "mfussenegger/nvim-dap-python" },
+	{ "gennaro-tedesco/nvim-peekup"}
 }
 
 

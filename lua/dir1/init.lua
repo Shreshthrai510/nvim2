@@ -60,3 +60,14 @@ vim.diagnostic.config({
 		end,
 	},
 })
+require('telescope').setup{ 
+  defaults = { 
+	path_display = { "smart" },
+	  layout_strategy = "vertical",
+    file_ignore_patterns = { 
+      "node_modules", 
+	"/.git"	
+    }
+  }
+}
+vim.g.undotree_DiffCommand = "FC"
