@@ -8,6 +8,7 @@ end
 -- Command to copy absolute path
 vim.api.nvim_create_user_command("CopyPath", function()
     local abs_path = vim.fn.expand("%:p")
+	print(abs_path)
     if abs_path == "" then
         print("No file to copy path from.")
         return
@@ -16,10 +17,13 @@ vim.api.nvim_create_user_command("CopyPath", function()
 end, {})
 -- Command to copy relative path
 vim.api.nvim_create_user_command("CopyRelPath", function()
-    local rel_path = vim.fn.expand("%")
-    if rel_path == "" then
-        print("No file to copy path from.")
-        return
+    local abs_path = vim.fn.expand("%:p")    -- Get the absolute path of the current file
+    local current_dir = vim.fn.getcwd()      -- Get the current working directory
+
+    if string.sub(abs_path, 1, #current_dir) == current_dir then
+        local rel_path = string.sub(abs_path, #current_dir + 2) 
+		copy_to_clipboards('./'..rel_path)
+    else
+		copy_to_clipboards(abs_path)
     end
-    copy_to_clipboards(rel_path)
 end, {})

@@ -57,7 +57,8 @@ local M = {
 	},
 	{ 'xiyaowong/fast-cursor-move.nvim' },
 	{ "mfussenegger/nvim-dap-python" },
-	{ "gennaro-tedesco/nvim-peekup"}
+	{ "gennaro-tedesco/nvim-peekup"},
+	{ "norcalli/nvim-colorizer.lua"}
 }
 
 

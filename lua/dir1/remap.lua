@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
---vim.keymap.set({ "n" }, "<leader>", "<enter>")
+vim.keymap.set('n', '<leader>rp', ':CopyRelPath<CR>', { noremap = true, silent = true })
+
 --local ls = require("luasnip")
 --
 ---- Jump forward (next parameter) with Ctrl+n

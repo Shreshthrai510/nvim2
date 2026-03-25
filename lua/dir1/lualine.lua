@@ -100,15 +100,51 @@ require('lualine').setup {
     lualine_z = {}
   },
   tabline = {
-		  lualine_a = {gettabname},
-    lualine_b = {hello},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
+	lualine_a = { gettabname },
+	lualine_b = { hello },
+	lualine_c = {},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {},
+},
+  winbar = {
+	lualine_a = {
+		{
+			'filename',
+			icon = {'◍'},
+		},
 	},
+	lualine_b = {
+		{
+			'filetype',
+			color = { fg = '#ffffff' },
+		},
+	},
+	lualine_c = {},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {},
+},
 
-  winbar = {},
-  inactive_winbar = {},
+  inactive_winbar= {
+	lualine_a = {
+		{
+			'filename',
+			color = { fg = '#000000' , bg = '#aaaaaf' },
+			icon = {'◌'},
+			separator = {  right = ''}
+		},
+	},
+	lualine_b = {
+		{
+			'filetype',
+			color = { fg = '#ffffff' },
+		},
+	},
+	lualine_c = {},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {},
+},
   extensions = {}
 }

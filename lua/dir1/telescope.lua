@@ -1,11 +1,12 @@
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, { desc = 'Telescope find in files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>fd', builtin.lsp_document_symbols, { desc = 'Telescope lsp_document_symbols' })
 vim.keymap.set('n', '<leader>fs', builtin.lsp_references, { desc = 'Telescope lsp refrences' })
-vim.keymap.set('n', '<leader>col', builtin.colorscheme, { desc = 'Telescope colorscheme' })
+vim.keymap.set('n', '<leader>bc', builtin.git_bcommits, { desc = 'Telescope colorscheme' })
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
