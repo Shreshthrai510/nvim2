@@ -3,7 +3,7 @@ vim.g.fuzzy = { implementation = 'lua' }
 -- vim.cmd[[colorscheme catppuccin-mocha]]
 vim.opt.number = true
 vim.opt.relativenumber = true
-local colorscheme = "brightburn"
+local colorscheme = "tokyonight"
 local ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 vim.o.background = "dark" -- or "light" for light mode
 if not ok then

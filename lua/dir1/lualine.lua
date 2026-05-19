@@ -1,7 +1,7 @@
 local tabnames = {}
 local csnames = {}
-local dcs = "brightburn"
-local cs = "brightburn"
+local dcs = "tokyonight"
+local cs = dcs
 local tabnm = { "main", "core", "config", "settings", "init", "setup", "global", "frontend", "backend", "api", "database", "auth", "routes", "models", "controllers", "services", "utils", "hooks", "components", "widgets", "dev", "staging", "prod", "local", "testing", "qa", "terminal", "shell", "bash", "zsh", "powershell", "logs", "debug", "ui", "ux", "design", "theme", "colors", "editor", "docs", "notes", "scratch", "draft", "playground", "sandbox", "tmp" }
 local function gettabname()
 	local tabnr = vim.api.nvim_get_current_tabpage()
